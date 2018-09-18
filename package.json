@@ -1,0 +1,25 @@
+{
+  "name": "tuna-jstemplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jstemplate.js",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.0.3"
+  },
+  "scripts": {
+    "build": "call tsc",
+    "debug": "call tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Baxterboom/tuna-jstemplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Baxterboom/tuna-jstemplate/issues"
+  },
+  "homepage": "https://github.com/Baxterboom/tuna-jstemplate#readme"
+}

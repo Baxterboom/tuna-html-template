@@ -1,0 +1,28 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+}
+
+#json,
+#template {
+    width: 45%;
+    height: 222px;
+    border: 1px solid teal;
+    margin: 10px;
+    font-family: monospace;
+    font-size: 10px;
+}
+
+demo {
+    float: left;
+    width: 150px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px dotted silver;
+}
+
+jstemplate {
+    float: left;
+    width: 100px !important;
+}

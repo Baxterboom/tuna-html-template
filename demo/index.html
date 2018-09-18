@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Demo</title>
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="../dist/tuna-jstemplate.css">
+
+  <script src="./index.js"></script>
+  <script src="../dist/tuna-jstemplate.js"></script>
+  <script>
+    function onload(){
+      Index.add();
+    }
+  </script>
+</head>
+
+<body onload="onload()">
+  <textarea id="json" placeholder="type json here">
+    {
+      "xss":"<script>alert(\"xsss\");</script>",
+      "title":"some title",
+      "items":[1,2,11,22]
+    }
+  </textarea>
+  <textarea id="template" placeholder="type template here">
+    <span> 
+      <h3><%=title.toUpperCase()%></h3> 
+      <hr>
+      <% 
+        var count = document.getElementsByTagName("demo").length;
+        write("count: " + count);
+      %>
+      half: <%=count/2%>
+      <hr>
+      <%
+        for(var i=0; i<items.length; i++) {
+         write(' > ' + i);
+        }
+      %> 
+      <hr> 
+      <% for(var i=0; i<items.length; i++) { %>   
+        <li><%=items[i]%></li> 
+      <% } %> 
+      <hr> 
+      <%=xss%>
+    </span>
+  </textarea>
+  <hr>
+  <button onclick="Index.add()">add</button>
+  <button onclick="Index.clear()">clear</button>
+  <div id="debug"></div>
+</body>
+
+</html>
