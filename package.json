@@ -5,10 +5,12 @@
   "main": "jstemplate.js",
   "dependencies": {},
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^3.0.1",
     "typescript": "^3.0.3"
   },
   "scripts": {
-    "build": "call tsc",
+    "build": "call tsc && call gulp",
     "debug": "call tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

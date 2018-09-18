@@ -1,9 +1,10 @@
-jstemplate{
-    color:silver;
+jstemplate {
+    display: block;
+    color: silver;
     width: 100%;
     padding: 2px;
-    margin:2px;
+    margin: 2px;
     border-radius: 5px;
-    border:1px dotted silver;
+    border: 1px dotted silver;
     text-align: center;
 }
