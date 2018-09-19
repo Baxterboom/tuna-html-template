@@ -1,7 +1,7 @@
-declare class JSTemplate {
-    private static cache;
-    private static readonly textarea;
-    static encode(value: string): string;
-    static clear(): void;
-    static parse(template: string, data: any, cache?: boolean): any;
+declare class JSTemplateClass {
+    cache: any;
+    static encode: (value: string) => string;
+    constructor();
+    parse(template: string, data: any, cache?: boolean): any;
 }
+declare const JSTemplate: JSTemplateClass;

@@ -1,25 +1,25 @@
-class JSTemplate {
-  private static cache: any = {};
-  private static readonly textarea: HTMLTextAreaElement = document.createElement('textarea');
+class JSTemplateClass {
+  public cache: any = {};
+  public static encode: (value: string) => string;
 
-  public static encode(value: string) {
-    this.textarea.textContent = value;
-    return this.textarea.innerHTML;
+  constructor() {
+    if (JSTemplateClass.encode) return;
+    const t: HTMLTextAreaElement = document.createElement('textarea');
+    JSTemplateClass.encode = (value: string) => {
+      t.textContent = value;
+      return t.innerHTML;
+    }
   }
 
-  public static clear() {
-    this.cache = {};
-  }
-
-  public static parse(template: string, data: any, cache?: boolean) {
+  public parse(template: string, data: any, cache?: boolean) {
     let err = "";
     try {
       let fn = cache ? this.cache[template] : null;
       if (!fn) {
         var code =
           "var p=[]," +
-          "j=JSTemplate," +
-          "e=j.encode.bind(j)," +
+          "c=JSTemplateClass," +
+          "e=c.encode.bind(c)," +
           "w=write=p.push.bind(p);" +
           "with(o){w('" +
           template
@@ -41,6 +41,8 @@ class JSTemplate {
       return fn(data);
     } catch (e) { err = e.message; }
     console.error(err);
-    return '<jstemplate title="' + this.encode(err) + '">&#8224;</jstemplate>';
+    return '<jstemplate title="' + JSTemplateClass.encode(err) + '">&#8224;</jstemplate>';
   }
 }
+
+const JSTemplate = new JSTemplateClass();
